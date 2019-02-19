@@ -1,0 +1,25 @@
+<div class="wrapper">
+  <h1 class="title"><%= @task.title %></h1>
+  <%= link_to "Back", tasks_path, class: "btn btn-outline" %>
+</div>
+
+<% if flash[:notice] %>
+  <div class="notice">
+      <div class="notice__message">
+        <%= flash[:notice] %>
+      </div>
+  </div>
+<% end %>
+
+<div class="container">
+  <div class="task-show">
+    <div class="task-show__details"><%= @task.details %></div>
+    <div class="task-show__message">
+      <% if @task.completed == true %>
+            <i class="far fa-check-square"> <%= @message %></i>
+          <% else %>
+            <i class="far fa-square"> <%= @message %></i>
+          <% end %>
+    </div>
+  </div>
+</div>

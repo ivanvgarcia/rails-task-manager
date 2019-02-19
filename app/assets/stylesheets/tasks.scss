@@ -1,0 +1,197 @@
+// Place all the styles related to the tasks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$main: #edf2f4;
+$primary: #ef233c;
+$primary-dark: #d80032;
+$black: #2b2d42;
+$grey: #8d99ae;
+
+$success: rgb(34, 206, 48);
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  box-sizing: border-box;
+  font-size: 1.6rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+.wrapper {
+  background: $main;
+  color: $primary;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.alert,
+.notice {
+  &__message {
+    max-width: 500px;
+    margin: 10px auto;
+    border-radius: 4px;
+    padding: 5px;
+    transform-origin: top left;
+    transform: rotate(-90deg);
+    animation: dropin 0.8s forwards cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border: 2px solid $primary-dark;
+    text-align: center;
+  }
+}
+
+.alert {
+  &__message {
+    background: rgba($primary, 0.4);
+    border: 2px solid $primary-dark;
+  }
+}
+
+.notice {
+  &__message {
+    border: 2px solid $success;
+    background: rgba($success, 0.4);
+  }
+}
+
+.title {
+  margin: 0;
+  padding: 1.5rem 0.5rem;
+}
+
+.tasks-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 3rem 0;
+}
+
+.task {
+  position: relative;
+  flex: 0 0 45%;
+  box-shadow: 0 1px 10px $grey;
+  margin: 1rem;
+  &__title {
+    font-size: 2rem;
+    background: $black;
+    padding: 1rem;
+    & a {
+      color: #fff;
+    }
+    & a:hover {
+      text-decoration: underline;
+    }
+    & i {
+      color: #fff;
+    }
+  }
+  &__details {
+    padding: 1rem;
+  }
+}
+
+.form {
+  & label {
+    padding-right: 1rem;
+  }
+  & .btn {
+    width: 10rem;
+  }
+  padding: 2rem;
+  &__field {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+  }
+  &__input {
+    height: 2rem;
+    font-size: 1.8rem;
+  }
+}
+
+.field_with_errors input {
+  outline: 1px $primary solid;
+}
+
+.btn {
+  text-align: center;
+  font-size: 1.4rem;
+  background: $black;
+  padding: 1rem;
+  color: #fff;
+  transition: opacity 0.3s cubic-bezier(0.86, 0, 0.07, 1);
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.is-block {
+  display: block;
+}
+
+.delete,
+.edit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  color: $main;
+  padding: 0.5rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(92, 92, 92, 0.5);
+}
+
+.delete {
+  top: -1rem;
+  right: -0.5rem;
+  background: $primary-dark;
+}
+
+.edit {
+  top: -1rem;
+  right: 4rem;
+  background: $grey;
+}
+
+.task-show {
+  padding: 2rem;
+  text-align: center;
+  & i {
+    color: $black;
+  }
+  &__details {
+    border: solid 1px $black;
+    background: rgba($grey, 0.3);
+    padding: 2rem;
+    border-radius: 5px;
+    font-size: 2rem;
+  }
+  &__message {
+    font-size: 2.2rem;
+    font-weight: 100;
+    padding: 1rem 0;
+  }
+}
+
+@keyframes dropin {
+  100% {
+    transform: rotate(0deg);
+  }
+}

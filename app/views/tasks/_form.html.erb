@@ -1,0 +1,25 @@
+<% if flash[:alert] %>
+  <div class="alert">
+    <% flash[:alert].each do |message|  %> 
+      <div class="alert__message">
+        <%= message %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<%= form_for(task, html: {:class => 'form'}) do |f| %>
+  <div class="form__field">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form__input" %>
+  </div>
+  <div class="form__field"> 
+    <%= f.label :details %>
+    <%= f.text_field :details, class: "form__input" %>
+  </div>
+  <div class="form__field"> 
+    <%= f.label :completed %>
+    <%= f.check_box :completed, class: "form__input" %>
+  </div>
+  <%= f.submit 'Add', class: 'btn' %>
+<% end %>
